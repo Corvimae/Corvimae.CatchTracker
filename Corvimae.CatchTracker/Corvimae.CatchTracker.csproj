@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF50B1C5-4E65-4A62-9293-B822844D78D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Corvimae.CatchTracker</RootNamespace>
+    <AssemblyName>Corvimae.CatchTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomFontDialog">
+      <HintPath>..\LiveSplit\LiveSplit\Libs\CustomFontDialog\CustomFontDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Components\AutoSplitterSaveWorkaround.cs" />
+    <Compile Include="UI\Components\TransparentTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Components\CountersWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Components\CountersWindow.Designer.cs">
+      <DependentUpon>CountersWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\CatchTrackerComponent.cs" />
+    <Compile Include="UI\Components\CatchTrackerComponentFactory.cs" />
+    <Compile Include="UI\Components\CatchTrackerComponentSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\CounterCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\TrackerButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Components\TrackerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Components\TrackerWindow.Designer.cs">
+      <DependentUpon>TrackerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\TransparentLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Schema\RunCatchHistory.cs" />
+    <Compile Include="UI\Settings\CounterDefinition.cs" />
+    <Compile Include="UI\Settings\SpeciesDictionary.cs" />
+    <Compile Include="UI\Settings\TrackedPokemonSpeciesInstance.cs" />
+    <Compile Include="UI\Settings\TrackerState.cs" />
+    <Compile Include="UI\Settings\TrackedPokemonSpecies.cs" />
+    <Compile Include="UI\Settings\PokemonSpecies.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Components\CounterCell.resx">
+      <DependentUpon>CounterCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\CountersWindow.resx">
+      <DependentUpon>CountersWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\CatchTrackerComponentSettings.resx">
+      <DependentUpon>CatchTrackerComponentSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\TrackerWindow.resx">
+      <DependentUpon>TrackerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CounterDefinition.datasource" />
+    <None Include="Properties\DataSources\TrackedPokemonSpecies.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="resources\kanto.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\sprites\kanto\1.png" />
+    <Resource Include="resources\sprites\kanto\10.png" />
+    <Resource Include="resources\sprites\kanto\100.png" />
+    <Resource Include="resources\sprites\kanto\101.png" />
+    <Resource Include="resources\sprites\kanto\102.png" />
+    <Resource Include="resources\sprites\kanto\103.png" />
+    <Resource Include="resources\sprites\kanto\104.png" />
+    <Resource Include="resources\sprites\kanto\105.png" />
+    <Resource Include="resources\sprites\kanto\106.png" />
+    <Resource Include="resources\sprites\kanto\107.png" />
+    <Resource Include="resources\sprites\kanto\108.png" />
+    <Resource Include="resources\sprites\kanto\109.png" />
+    <Resource Include="resources\sprites\kanto\11.png" />
+    <Resource Include="resources\sprites\kanto\110.png" />
+    <Resource Include="resources\sprites\kanto\111.png" />
+    <Resource Include="resources\sprites\kanto\112.png" />
+    <Resource Include="resources\sprites\kanto\113.png" />
+    <Resource Include="resources\sprites\kanto\114.png" />
+    <Resource Include="resources\sprites\kanto\115.png" />
+    <Resource Include="resources\sprites\kanto\116.png" />
+    <Resource Include="resources\sprites\kanto\117.png" />
+    <Resource Include="resources\sprites\kanto\118.png" />
+    <Resource Include="resources\sprites\kanto\119.png" />
+    <Resource Include="resources\sprites\kanto\12.png" />
+    <Resource Include="resources\sprites\kanto\120.png" />
+    <Resource Include="resources\sprites\kanto\121.png" />
+    <Resource Include="resources\sprites\kanto\122.png" />
+    <Resource Include="resources\sprites\kanto\123.png" />
+    <Resource Include="resources\sprites\kanto\124.png" />
+    <Resource Include="resources\sprites\kanto\125.png" />
+    <Resource Include="resources\sprites\kanto\126.png" />
+    <Resource Include="resources\sprites\kanto\127.png" />
+    <Resource Include="resources\sprites\kanto\128.png" />
+    <Resource Include="resources\sprites\kanto\129.png" />
+    <Resource Include="resources\sprites\kanto\13.png" />
+    <Resource Include="resources\sprites\kanto\130.png" />
+    <Resource Include="resources\sprites\kanto\131.png" />
+    <Resource Include="resources\sprites\kanto\132.png" />
+    <Resource Include="resources\sprites\kanto\133.png" />
+    <Resource Include="resources\sprites\kanto\134.png" />
+    <Resource Include="resources\sprites\kanto\135.png" />
+    <Resource Include="resources\sprites\kanto\136.png" />
+    <Resource Include="resources\sprites\kanto\137.png" />
+    <Resource Include="resources\sprites\kanto\138.png" />
+    <Resource Include="resources\sprites\kanto\139.png" />
+    <Resource Include="resources\sprites\kanto\14.png" />
+    <Resource Include="resources\sprites\kanto\140.png" />
+    <Resource Include="resources\sprites\kanto\141.png" />
+    <Resource Include="resources\sprites\kanto\142.png" />
+    <Resource Include="resources\sprites\kanto\143.png" />
+    <Resource Include="resources\sprites\kanto\144.png" />
+    <Resource Include="resources\sprites\kanto\145.png" />
+    <Resource Include="resources\sprites\kanto\146.png" />
+    <Resource Include="resources\sprites\kanto\147.png" />
+    <Resource Include="resources\sprites\kanto\148.png" />
+    <Resource Include="resources\sprites\kanto\149.png" />
+    <Resource Include="resources\sprites\kanto\15.png" />
+    <Resource Include="resources\sprites\kanto\150.png" />
+    <Resource Include="resources\sprites\kanto\151.png" />
+    <Resource Include="resources\sprites\kanto\16.png" />
+    <Resource Include="resources\sprites\kanto\17.png" />
+    <Resource Include="resources\sprites\kanto\18.png" />
+    <Resource Include="resources\sprites\kanto\19.png" />
+    <Resource Include="resources\sprites\kanto\2.png" />
+    <Resource Include="resources\sprites\kanto\20.png" />
+    <Resource Include="resources\sprites\kanto\21.png" />
+    <Resource Include="resources\sprites\kanto\22.png" />
+    <Resource Include="resources\sprites\kanto\23.png" />
+    <Resource Include="resources\sprites\kanto\24.png" />
+    <Resource Include="resources\sprites\kanto\25.png" />
+    <Resource Include="resources\sprites\kanto\26.png" />
+    <Resource Include="resources\sprites\kanto\27.png" />
+    <Resource Include="resources\sprites\kanto\28.png" />
+    <Resource Include="resources\sprites\kanto\29.png" />
+    <Resource Include="resources\sprites\kanto\3.png" />
+    <Resource Include="resources\sprites\kanto\30.png" />
+    <Resource Include="resources\sprites\kanto\31.png" />
+    <Resource Include="resources\sprites\kanto\32.png" />
+    <Resource Include="resources\sprites\kanto\33.png" />
+    <Resource Include="resources\sprites\kanto\34.png" />
+    <Resource Include="resources\sprites\kanto\35.png" />
+    <Resource Include="resources\sprites\kanto\36.png" />
+    <Resource Include="resources\sprites\kanto\37.png" />
+    <Resource Include="resources\sprites\kanto\38.png" />
+    <Resource Include="resources\sprites\kanto\39.png" />
+    <Resource Include="resources\sprites\kanto\4.png" />
+    <Resource Include="resources\sprites\kanto\40.png" />
+    <Resource Include="resources\sprites\kanto\41.png" />
+    <Resource Include="resources\sprites\kanto\42.png" />
+    <Resource Include="resources\sprites\kanto\43.png" />
+    <Resource Include="resources\sprites\kanto\44.png" />
+    <Resource Include="resources\sprites\kanto\45.png" />
+    <Resource Include="resources\sprites\kanto\46.png" />
+    <Resource Include="resources\sprites\kanto\47.png" />
+    <Resource Include="resources\sprites\kanto\48.png" />
+    <Resource Include="resources\sprites\kanto\49.png" />
+    <Resource Include="resources\sprites\kanto\5.png" />
+    <Resource Include="resources\sprites\kanto\50.png" />
+    <Resource Include="resources\sprites\kanto\51.png" />
+    <Resource Include="resources\sprites\kanto\52.png" />
+    <Resource Include="resources\sprites\kanto\53.png" />
+    <Resource Include="resources\sprites\kanto\54.png" />
+    <Resource Include="resources\sprites\kanto\55.png" />
+    <Resource Include="resources\sprites\kanto\56.png" />
+    <Resource Include="resources\sprites\kanto\57.png" />
+    <Resource Include="resources\sprites\kanto\58.png" />
+    <Resource Include="resources\sprites\kanto\59.png" />
+    <Resource Include="resources\sprites\kanto\6.png" />
+    <Resource Include="resources\sprites\kanto\60.png" />
+    <Resource Include="resources\sprites\kanto\61.png" />
+    <Resource Include="resources\sprites\kanto\62.png" />
+    <Resource Include="resources\sprites\kanto\63.png" />
+    <Resource Include="resources\sprites\kanto\64.png" />
+    <Resource Include="resources\sprites\kanto\65.png" />
+    <Resource Include="resources\sprites\kanto\66.png" />
+    <Resource Include="resources\sprites\kanto\67.png" />
+    <Resource Include="resources\sprites\kanto\68.png" />
+    <Resource Include="resources\sprites\kanto\69.png" />
+    <Resource Include="resources\sprites\kanto\7.png" />
+    <Resource Include="resources\sprites\kanto\70.png" />
+    <Resource Include="resources\sprites\kanto\71.png" />
+    <Resource Include="resources\sprites\kanto\72.png" />
+    <Resource Include="resources\sprites\kanto\73.png" />
+    <Resource Include="resources\sprites\kanto\74.png" />
+    <Resource Include="resources\sprites\kanto\75.png" />
+    <Resource Include="resources\sprites\kanto\76.png" />
+    <Resource Include="resources\sprites\kanto\77.png" />
+    <Resource Include="resources\sprites\kanto\78.png" />
+    <Resource Include="resources\sprites\kanto\79.png" />
+    <Resource Include="resources\sprites\kanto\8.png" />
+    <Resource Include="resources\sprites\kanto\80.png" />
+    <Resource Include="resources\sprites\kanto\81.png" />
+    <Resource Include="resources\sprites\kanto\82.png" />
+    <Resource Include="resources\sprites\kanto\83.png" />
+    <Resource Include="resources\sprites\kanto\84.png" />
+    <Resource Include="resources\sprites\kanto\85.png" />
+    <Resource Include="resources\sprites\kanto\86.png" />
+    <Resource Include="resources\sprites\kanto\87.png" />
+    <Resource Include="resources\sprites\kanto\88.png" />
+    <Resource Include="resources\sprites\kanto\89.png" />
+    <Resource Include="resources\sprites\kanto\9.png" />
+    <Resource Include="resources\sprites\kanto\90.png" />
+    <Resource Include="resources\sprites\kanto\91.png" />
+    <Resource Include="resources\sprites\kanto\92.png" />
+    <Resource Include="resources\sprites\kanto\93.png" />
+    <Resource Include="resources\sprites\kanto\94.png" />
+    <Resource Include="resources\sprites\kanto\95.png" />
+    <Resource Include="resources\sprites\kanto\96.png" />
+    <Resource Include="resources\sprites\kanto\97.png" />
+    <Resource Include="resources\sprites\kanto\98.png" />
+    <Resource Include="resources\sprites\kanto\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LiveSplit\LiveSplit\LiveSplit.Core\LiveSplit.Core.csproj">
+      <Project>{6de847db-20a3-4848-aeee-1b4364aecdfb}</Project>
+      <Name>LiveSplit.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveSplit\LiveSplit\UpdateManager\UpdateManager.csproj">
+      <Project>{56dea3a0-2eb7-493b-b50f-a5e3aa8ae52a}</Project>
+      <Name>UpdateManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

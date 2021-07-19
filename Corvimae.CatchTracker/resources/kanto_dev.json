@@ -1,0 +1,13 @@
+﻿{
+  "spriteDirectory": "./sprites/kanto",
+  "pokemon": [
+    {
+      "id": 1,
+      "name": "Bulbasaur"
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur"
+    }
+  ]
+}		
