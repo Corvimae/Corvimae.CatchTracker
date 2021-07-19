@@ -63,6 +63,8 @@ namespace Corvimae.CatchTracker {
     protected override void OnClosing(CancelEventArgs e) {
       base.OnClosing(e);
 
+      instance = null;
+
       LocationChanged -= CounterWindow_LocationChanged;
     }
 

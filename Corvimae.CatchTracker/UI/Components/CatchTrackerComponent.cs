@@ -53,16 +53,12 @@ namespace Corvimae.CatchTracker.Component {
     }
 
     public void RefreshCountersWindow() {
-      counters = CountersWindow.Instance;
-
       if (counters != null) {
         counters.RefreshWindow();
       }
     }
 
     public void RefreshTrackerWindow(bool speciesListUpdated) {
-      tracker = TrackerWindow.Instance;
-
       if (tracker != null) {
         tracker.RefreshWindow(speciesListUpdated);
       }
